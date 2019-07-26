@@ -3,6 +3,14 @@
 #include <string>
 #include"Person.h"
 
+enum POSITION
+{
+	SWEPPER,
+	ACOUNTANT,
+	DDIRECTOR
+
+};
+
 using namespace std;
 
 class Employee:public Person

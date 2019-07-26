@@ -22,9 +22,10 @@ Employee::~Employee()
 
 ostream& operator<<   (ostream& os, const Employee& t)
 {
+	os << t.name << " " << t.surname << endl;
 	os << " Position: " << t.position << " Salarry: " << t.salary << endl;
 	os << "Bank Account: " << t.bankAccount<<endl;
-
+	
 	return os;
 }
 /*
