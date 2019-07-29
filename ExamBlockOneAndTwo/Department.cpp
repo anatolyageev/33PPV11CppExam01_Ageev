@@ -32,9 +32,11 @@ void printEmploee(Employee* elem) { cout << *elem; }
 ostream& operator<<   (ostream& os, const Department& t)
 {
 	os << "Deparnment name: " << t.departmentName << " Head of Department: " << t.headOfDepartment << endl;
+/*
 	for (int i = 0; i < t.employees.size(); i++) {
 		os << *t.employees[i];
 	}
+*/
 //	vector<Employee*>::iterator ptr;
 //	cout <<"First member of vector\n"<< *t.employees.begin() <<endl;
 //	ptr = t.employees.begin();
