@@ -3,6 +3,8 @@
 #include <string>
 #include"Person.h"
 
+using namespace std;
+
 enum POSITION
 {
 	SWEPPER,
@@ -11,7 +13,7 @@ enum POSITION
 
 };
 
-using namespace std;
+
 
 class Employee:public Person
 {
