@@ -30,6 +30,36 @@ struct CalcInfo
 	double bonus_percent;//процент бонуса
 	double hour;//количество часов
 	double rate_per_hour;//стоимость часа
+
+	CalcInfo(double hour, double rate_per_hour) {
+		this->base = 0;
+		this->bonus = 0;
+		this->bonus_percent = 0;
+		this->hour = hour;
+		this->percent = 0;
+		this->rate_per_hour = rate_per_hour;
+		this->total = 0;
+	}
+	CalcInfo(double base, double bonus, double bonus_percent) {
+		this->base = base;
+		this->bonus = bonus;
+		this->bonus_percent = bonus_percent;
+		this->hour = 0;
+		this->percent = 0;
+		this->rate_per_hour = 0;
+		this->total = 0;
+	}
+
+	CalcInfo(double base, double bonus, double bonus_percent,double percent, double total) {
+		this->base = base;
+		this->bonus = bonus;
+		this->bonus_percent = bonus_percent;
+		this->hour = 0;
+		this->percent = percent;
+		this->rate_per_hour = 0;
+		this->total = total;
+	}
+
 };
 
 
@@ -47,6 +77,7 @@ protected:
 	double bonus_percent;//процент бонуса
 	double hour;//количество часов
 	double rate_per_hour;//стоимость часа
+
 public:
 	POSITION getPosition() { return this->position; }
 	virtual double calcSalary()
@@ -63,7 +94,7 @@ public:
 	void setSalary(float salary) { this->salary = salary; }
 	friend ostream& operator<<   (ostream& os, Employee& t);
 	Employee();
-	Employee(POSITION position, int bankAccount, CalcInfo info);
+	Employee(bool sex, int age, string name, string surname, string city, string street, int bildingNumber, int flatNumber, string phoneNumber,POSITION position, int bankAccount, CalcInfo info);
 	Employee(const Employee& obj) {}
 	static SalaryCalc* createSalarycalcRule(int codePosition, CalcInfo info);
 	//Employee* operator=(const Employee& obj);

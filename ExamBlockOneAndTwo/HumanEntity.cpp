@@ -8,7 +8,7 @@ HumanEntity::HumanEntity()
 	this->surname = "AnySurname";
 }
 
-HumanEntity::HumanEntity(string name, string surname) {
+HumanEntity::HumanEntity(bool sex, int age, string name, string surname):AnimalEntity(sex,age) {
 	this->name = name;
 	this->surname = surname;
 }
@@ -19,7 +19,7 @@ HumanEntity::~HumanEntity()
 
 ostream& operator<<   (ostream& os, const HumanEntity& t)
 {
-	os << t.name << " " << t.surname << "Age: " << t.sex << endl;
-
+	os << t.name << " " << t.surname <<"; ";
+	os << (AnimalEntity&)t;
 	return os;
 }

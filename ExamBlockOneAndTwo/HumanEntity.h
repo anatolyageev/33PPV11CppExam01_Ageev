@@ -18,7 +18,8 @@ public:
 	void setSurname(string surname) { this->surname = surname; }
 	friend ostream& operator<<   (ostream& os, const HumanEntity& t);
 	HumanEntity();
-	HumanEntity(string name, string surname);
+	HumanEntity(bool sex, int age, string name, string surname);
+
 	~HumanEntity();
 };
 

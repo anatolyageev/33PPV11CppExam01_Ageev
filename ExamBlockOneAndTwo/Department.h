@@ -10,20 +10,20 @@ class Department
 {
 
 	string departmentName;
-	string headOfDepartment;
+	Employee* headOfDepartment;
 	vector<Employee*> employees;
 
 public:
 	string getDepartmentName() { return this->departmentName; }
-	string getHeadOfDepartment() { return this->headOfDepartment; }
+	Employee* getHeadOfDepartment() { return this->headOfDepartment; }
 	vector<Employee*> getEmployees() { return this->employees; }
 	void setDepartmentName(string departmentName) { this->departmentName = departmentName; }
-	void setHeadOfDepartment(string headOfDepartment) { this->departmentName = headOfDepartment; }
+	void setHeadOfDepartment(Employee *headOfDepartment) { this->headOfDepartment = headOfDepartment; }
 	void setEmployees(vector<Employee*> employees) { this->employees = employees; }
 	friend ostream& operator<<   (ostream& os, const Department& t);
 	vector<Employee*>::iterator ptr;
 	Department();
-	Department(string departmentName, string headOfDepartment, vector<Employee*> employees);
+	Department(string departmentName, Employee *headOfDepartment, vector<Employee*> employees);
 	Department(const Department& obj) {}
 	~Department();
 };
