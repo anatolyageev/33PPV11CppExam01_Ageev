@@ -10,9 +10,10 @@
 #include"Department.h"
 
 
+
 int main()
 {
-    
+    /*
 	AdressInfo testad;
 	cout << testad;
 	AnimalEntity anomtest;
@@ -29,6 +30,26 @@ int main()
 	Department departmTest;
 	cout << departmTest;
 	Employee empl;
+	*/
+	vector<Department*> depTest;
+	Department *dpt1 = new Department();
+	Department *dpt2 = new Department();
+	depTest.push_back(dpt1);
+	depTest.push_back(dpt2);
+	vector<Department*>::iterator ptr;
+	for (ptr = depTest.begin(); ptr < depTest.end(); ptr++) {
+		cout << *(*ptr) << " ";
+	}
+
+	vector<Employee*> test;
+	Employee *e1 = new Employee();
+	Employee *e2 = new Employee();
+	test.push_back(e1);
+	test.push_back(e2);
+	vector<Employee*>::iterator ptr1;
+	for (ptr1 = test.begin(); ptr1 < test.end(); ptr1++) {
+		cout << *(*ptr1);
+	}
 	system("pause");
 }
 

@@ -10,7 +10,7 @@ class SalaryCalkWithBonus: public SalaryCalc
 public:
 	SalaryCalkWithBonus();
 	SalaryCalkWithBonus(double base, double percent, double bonus);
-	virtual double SalaryCalc() { return base + bonus* percent; }
+	virtual double calcSalary() { return base + bonus* percent; }
 	~SalaryCalkWithBonus();
 };
 

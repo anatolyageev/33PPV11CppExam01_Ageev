@@ -10,7 +10,7 @@ class SalaryCalcHourlyBesed: public SalaryCalc
 public:
 	SalaryCalcHourlyBesed();
 	SalaryCalcHourlyBesed(double hour, double rate);
-	virtual double SalaryCalc() { return hour * rate; }
+	virtual double calcSalary() { return hour * rate; }
 	~SalaryCalcHourlyBesed();
 };
 

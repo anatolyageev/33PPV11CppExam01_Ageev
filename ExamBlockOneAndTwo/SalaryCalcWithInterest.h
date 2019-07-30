@@ -1,6 +1,6 @@
 #pragma once
 #include "SalaryCalc.h"
-class SalaryCalcWithInterest
+class SalaryCalcWithInterest: public SalaryCalc
 {
 	double total; //общая выручка
 	double percent;
@@ -9,6 +9,6 @@ class SalaryCalcWithInterest
 public:
 	SalaryCalcWithInterest();
 	SalaryCalcWithInterest(double base, double percent, double total);
-	virtual double SalaryCalc() { return base + total * percent; }
+	virtual double calcSalary() { return base + total * percent; }
 	~SalaryCalcWithInterest();
 };
