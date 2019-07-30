@@ -21,7 +21,7 @@ ostream& operator<<   (ostream& os, const AnimalEntity& t)
 {
 	string sexT;
 	sexT = t.sex ? "Mail" : "Femail";
-	os << t.age << " " << sexT << endl;
+	os <<"Age: "<< t.age << "; Sex: " << sexT << "; ";
 	
 	return os;
 }

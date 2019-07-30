@@ -2,53 +2,40 @@
 //
 
 #include "pch.h"
-//#include <iostream>
-//#include"Person.h"
-//#include"AdressInfo.h"
-//#include"HumanEntity.h"
-//#include"Employee.h"
 #include"Department.h"
-
 
 
 int main()
 {
-    /*
-	AdressInfo testad;
-	cout << testad;
-	AnimalEntity anomtest;
-	cout << "animal"  << endl;
-	cout << anomtest;
-	cout << "/nHumen" << endl;
-	HumanEntity humtest;
-	cout << humtest;
-	Person personTest;
-	cout << personTest;
-	Employee empoeetest;
-	cout << empoeetest;
-	cout << "/nDepartmentTest" << endl;
-	Department departmTest;
-	cout << departmTest;
-	Employee empl;
-	*/
+ 
+	CalcInfo HourlySalary(8,100);
+	CalcInfo SalaryBonus(1000,1000,0.5);
+	CalcInfo SalaryInterest(1000,1000,0.1,0.2,100000);
+	
+	
+	Employee *emplTest1 = new Employee(true, 41, "Vasiliy", "Sidorov", "Kharkov", "Solnechnaya", 345, 1, "+38050000001", DIRECTOR, 983429368, SalaryInterest);
+	Employee *emplTest2 = new Employee(true, 45, "Petr", "Ivanov", "Kharkov", "Pushkinskaya", 45, 5, "+38050000002", DIRECTOR, 234673377, SalaryInterest);
+
+	vector<Employee*> testEmplVector1;
+	Employee *e1 = new Employee(true, 21, "Ivan", "Petrov", "Kharkov", "Cvetocnaya", 2, 4, "+38050000011", PROGRAMMER, 1298979997, HourlySalary);
+	Employee *e2 = new Employee(false, 25, "Maria", "Ivanova", "Kiev", "Lermontovskaya", 26, 28, "+380660000023",ACOUNTANT,987974939,SalaryBonus);
+	testEmplVector1.push_back(e1);
+	testEmplVector1.push_back(e2);
+
+	vector<Employee*> testEmplVector2;
+	Employee *e21 = new Employee(true, 21, "Vasiliy", "Petrovich", "Kharkov", "Shevchenko", 23, 43, "+38050006011", DRIVER, 1298229997, HourlySalary);
+	Employee *e22 = new Employee(false, 25, "Anna", "Shmit", "Kharkov", "Sobornaya", 2, 29, "+380660005023", ACOUNTANT, 987974939, SalaryBonus);
+	testEmplVector2.push_back(e21);
+	testEmplVector2.push_back(e22);
+
 	vector<Department*> depTest;
-	Department *dpt1 = new Department();
-	Department *dpt2 = new Department();
-	depTest.push_back(dpt1);
-	depTest.push_back(dpt2);
+	Department *departmTest1 = new Department("Sales", emplTest1, testEmplVector1);
+	Department *departmTest2 = new Department("Transport", emplTest2, testEmplVector2);
+	depTest.push_back(departmTest1);
+	depTest.push_back(departmTest2);
 	vector<Department*>::iterator ptr;
 	for (ptr = depTest.begin(); ptr < depTest.end(); ptr++) {
 		cout << *(*ptr) << " ";
-	}
-
-	vector<Employee*> test;
-	Employee *e1 = new Employee();
-	Employee *e2 = new Employee();
-	test.push_back(e1);
-	test.push_back(e2);
-	vector<Employee*>::iterator ptr1;
-	for (ptr1 = test.begin(); ptr1 < test.end(); ptr1++) {
-		cout << *(*ptr1);
 	}
 	system("pause");
 }

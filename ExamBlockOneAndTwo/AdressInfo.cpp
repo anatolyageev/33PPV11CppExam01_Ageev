@@ -22,8 +22,8 @@ AdressInfo::AdressInfo(string city, string street, int bildingNumber, int flatNu
 
 ostream& operator<<   (ostream& os, const AdressInfo& t)
 {
-	os << t.city << " " << t.street << endl;
-	os << t.bildingNumber << " " << t.flatNumber << endl;
+	os << "City "<<t.city << "; Street: " << t.street<<"b. ";
+	os << t.bildingNumber << "; f. " << t.flatNumber <<"; ";
 	return os;
 }
 

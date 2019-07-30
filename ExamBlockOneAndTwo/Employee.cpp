@@ -14,7 +14,9 @@ Employee::~Employee()
 }
 
 
-Employee::Employee(POSITION position, int bankAccount, CalcInfo info) {
+Employee::Employee(bool sex, int age, string name, string surname, string city, string street, int bildingNumber, int flatNumber, string phoneNumber,POSITION position, int bankAccount, CalcInfo info)
+	:Person( sex,  age,  name,  surname,  city,  street,  bildingNumber,  flatNumber,  phoneNumber)
+{
 	this->position = position;
 	this->bankAccount = bankAccount;
 	this->base = info.base;
@@ -22,16 +24,16 @@ Employee::Employee(POSITION position, int bankAccount, CalcInfo info) {
 	this->percent = info.percent;
 	this->hour = info.hour;
 	this->rate_per_hour = info.rate_per_hour;
-
+	this->salaryCalcFun = createSalarycalcRule(position, info);
 }
 
 SalaryCalc * Employee::createSalarycalcRule(int codePosition, CalcInfo info){
 	SalaryCalc* salaryCalcFun = NULL;
 	switch (codePosition)
 	{
-	case 1:case 2:case 3:case 4: salaryCalcFun = new SalaryCalcHourlyBesed(info.hour, info.rate_per_hour); break;
-	case 5:case 6: salaryCalcFun = new SalaryCalkWithBonus(info.base, info.bonus_percent,info.bonus); break;
-	case 7:case 8: salaryCalcFun = new SalaryCalcWithInterest(info.base, info.percent,info.total); break;
+	case 0:case 1:case 2:case 3: salaryCalcFun = new SalaryCalcHourlyBesed(info.hour, info.rate_per_hour); break;
+	case 4:case 5: salaryCalcFun = new SalaryCalkWithBonus(info.base, info.bonus_percent,info.bonus); break;
+	case 6:case 7: salaryCalcFun = new SalaryCalcWithInterest(info.base,info.bonus,info.bonus_percent, info.percent,info.total); break;
 	default: salaryCalcFun = new SalaryCalcHourlyBesed(info.hour, info.rate_per_hour);
 		break;
 
@@ -39,22 +41,10 @@ SalaryCalc * Employee::createSalarycalcRule(int codePosition, CalcInfo info){
 	}
 }
 
-
-
-
 ostream& operator<<   (ostream& os, Employee& t)
 {
-	os << t.name << " " << t.surname << endl;
-	os << " Position: " << t.position << " Salarry: " << t.calcSalary() << endl;
-	os << "Bank Account: " << t.bankAccount<<endl;
-	
+	os << (Person&)t;
+	os << " Position: " << t.position << "; Salarry: " << t.calcSalary();
+	os << "; Bank Account: " << t.bankAccount << endl;
 	return os;
 }
-/*
-Employee* Employee :: operator=(const Employee& obj) {
-	bankAccount = obj.bankAccount;
-	position = obj.position;
-	salary = obj.salary;
-	return this;
-}
-*/
